@@ -1,5 +1,10 @@
+
 {
-  "start": [
-    "java -jar out/artifacts/workhub_backend_jar/workhub-backend.jar"
-  ]
+  "build": {
+    "type": "maven",
+    "goal": "package -DskipTests"
+  },
+  "deploy": {
+    "jarName": "out/artifacts/workhub_backend_jar/workhub-backend.jar"
+  }
 }
