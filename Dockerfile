@@ -8,6 +8,9 @@ COPY mvnw .
 COPY .mvn .mvn
 COPY pom.xml .
 
+# ✅ FIX: Cấp quyền thực thi cho mvnw
+RUN chmod +x mvnw
+
 RUN ./mvnw dependency:go-offline
 
 # Copy the rest of the source
@@ -21,10 +24,8 @@ FROM eclipse-temurin:17-jre-alpine
 
 WORKDIR /app
 
-# Copy the built jar from stage 1
 COPY --from=builder /app/target/*.jar app.jar
 
-# Railway hoặc Docker sẽ truyền biến PORT
 ENV PORT=8080
 EXPOSE ${PORT}
 
