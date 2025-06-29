@@ -1,0 +1,5 @@
+{
+  "start": [
+    "java -jar out/artifacts/workhub_backend_jar/workhub-backend.jar"
+  ]
+}
